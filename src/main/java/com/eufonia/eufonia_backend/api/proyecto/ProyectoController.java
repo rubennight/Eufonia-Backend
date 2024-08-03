@@ -17,7 +17,7 @@ public class ProyectoController {
     private ProyectoService proyectoService;
 
     @GetMapping("listaDeProyectosMusicales")
-    public List<ProyectoMusical> getMethodName() {
+    public List<ProyectoMusical> obtenerListaDeProyectosMusicales() {
         return proyectoService.obtenerTodosLosProyectos();
     }
 

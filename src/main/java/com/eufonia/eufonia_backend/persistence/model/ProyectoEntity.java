@@ -27,6 +27,9 @@ public class ProyectoEntity {
     private String email;
 
     @Column(name = "telefono")
+    private String telefono;
+
+    @Column(name = "descripcion")
     private String descripcion;
 
     @Column(name = "genero_musical")

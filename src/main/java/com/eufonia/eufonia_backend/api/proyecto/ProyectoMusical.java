@@ -15,6 +15,8 @@ public class ProyectoMusical {
 
     private String email;
 
+    private String telefono;
+
     private String descripcion;
 
     private String generoMusical;

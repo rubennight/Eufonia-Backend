@@ -33,6 +33,7 @@ public class ProyectoFactory {
 
         proyectoEntity.setIdProyecto(idProyecto);
         proyectoEntity.setNombre(proyectoMusical.getNombre());
+        proyectoEntity.setTelefono(proyectoMusical.getTelefono());
         proyectoEntity.setDescripcion(proyectoMusical.getDescripcion());
         proyectoEntity.setInstrumentos(proyectoMusical.getInstrumentos());
         proyectoEntity.setEmail(proyectoMusical.getEmail());
