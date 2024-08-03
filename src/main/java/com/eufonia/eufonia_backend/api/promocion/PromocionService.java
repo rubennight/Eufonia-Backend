@@ -18,7 +18,7 @@ public class PromocionService {
 
         List<PromocionEntity> promocionEntities = promocionRepository.findAll();
 
-        List<Promocion> promociones = PromocionFactory.convertirListaEntityAListaObjeto(promocionEntities);
+        List<Promocion> promociones = PromocionFactory.toListObject(promocionEntities);
         
         return promociones;
     }

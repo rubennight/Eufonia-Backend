@@ -21,7 +21,7 @@ public class ProyectoService {
         try {
             List<ProyectoEntity> proyectoEntities = proyectoRepository.findAll();
 
-            proyectosMusicales = ProyectoFactory.convertirEntityAObjeto(proyectoEntities);
+            proyectosMusicales = ProyectoFactory.toListObject(proyectoEntities);
 
         } catch (Exception e) {
             e.getStackTrace();
@@ -30,16 +30,17 @@ public class ProyectoService {
         return proyectosMusicales;
     }
 
-    public boolean agregarProyecto(ProyectoMusical proyectoMusical){
+    public Boolean agregarProyecto(ProyectoMusical proyectoMusical){
         try{
-            ProyectoEntity proyectoEntity = ProyectoFactory.convertirObjetoAEntity(proyectoMusical);
+            ProyectoEntity proyectoEntity = ProyectoFactory.toEntity(proyectoMusical);
 
             proyectoRepository.save(proyectoEntity);
 
             return true;
         }catch(Exception e){
-            e.getStackTrace();
+            e.printStackTrace();
             return false;
         }
     }
+
 }

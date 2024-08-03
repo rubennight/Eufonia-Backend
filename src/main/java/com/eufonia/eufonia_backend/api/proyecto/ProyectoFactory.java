@@ -8,7 +8,7 @@ import com.eufonia.eufonia_backend.persistence.model.ProyectoEntity;
 
 public class ProyectoFactory {
     
-    public static List<ProyectoMusical> convertirEntityAObjeto(List<ProyectoEntity> proyectoEntities){
+    public static List<ProyectoMusical> toListObject(List<ProyectoEntity> proyectoEntities){
         List<ProyectoMusical> proyectosMusicales = new ArrayList<>();
 
         for (ProyectoEntity proyectoEntity : proyectoEntities) {
@@ -26,7 +26,7 @@ public class ProyectoFactory {
         return proyectosMusicales;
     }
 
-    public static ProyectoEntity convertirObjetoAEntity(ProyectoMusical proyectoMusical){
+    public static ProyectoEntity toEntity(ProyectoMusical proyectoMusical){
         ProyectoEntity proyectoEntity = new ProyectoEntity();
 
         UUID idProyecto = UUID.randomUUID();

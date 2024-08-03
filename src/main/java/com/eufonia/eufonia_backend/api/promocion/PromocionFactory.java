@@ -7,7 +7,7 @@ import com.eufonia.eufonia_backend.persistence.model.PromocionEntity;
 
 public class PromocionFactory {
     
-    public static Promocion convertitEntityAObjeto(PromocionEntity promocionEntity){
+    public static Promocion toObject(PromocionEntity promocionEntity){
 
         Promocion promocion = new Promocion();
 
@@ -22,7 +22,7 @@ public class PromocionFactory {
         return promocion;
     }
 
-    public static List<Promocion> convertirListaEntityAListaObjeto(List<PromocionEntity> promocionEntities){
+    public static List<Promocion> toListObject(List<PromocionEntity> promocionEntities){
 
         List<Promocion> promociones = new ArrayList<>();
 
