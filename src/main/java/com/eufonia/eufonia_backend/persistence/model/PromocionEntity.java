@@ -1,5 +1,7 @@
 package com.eufonia.eufonia_backend.persistence.model;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.UUID;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,16 +21,19 @@ public class PromocionEntity {
     @Column(name = "nombre")
     private String nombre;
 
-    @Column(name = "instrumentos")
-    private Integer instrumentos;
+    @Column(name = "descripcion")
+    private String descripcion;
 
-    @Column(name = "email")
-    private String email;
+    @Column(name = "fecha_inicio")
+    private LocalDateTime fechaInicio;
 
-    @Column(name = "telefono")
-    private String telefono;
+    @Column(name = "fecha_fin")
+    private LocalDateTime fechaFin;
+
+    @Column(name = "descuento")
+    private BigDecimal descuento;
 
     @Column(name = "vigencia")
-    private boolean vigencia;
-
+    private Boolean vigencia;
+    
 }
