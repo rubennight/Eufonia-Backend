@@ -2,6 +2,7 @@ package com.eufonia.eufonia_backend.api.proyecto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import com.eufonia.eufonia_backend.persistence.model.ProyectoEntity;
 
@@ -23,5 +24,20 @@ public class ProyectoFactory {
         }
 
         return proyectosMusicales;
+    }
+
+    public static ProyectoEntity convertirObjetoAEntity(ProyectoMusical proyectoMusical){
+        ProyectoEntity proyectoEntity = new ProyectoEntity();
+
+        UUID idProyecto = UUID.randomUUID();
+
+        proyectoEntity.setIdProyecto(idProyecto);
+        proyectoEntity.setNombre(proyectoMusical.getNombre());
+        proyectoEntity.setDescripcion(proyectoMusical.getDescripcion());
+        proyectoEntity.setInstrumentos(proyectoMusical.getInstrumentos());
+        proyectoEntity.setEmail(proyectoMusical.getEmail());
+        proyectoEntity.setGeneroMusical(proyectoMusical.getGeneroMusical());
+
+        return proyectoEntity;
     }
 }

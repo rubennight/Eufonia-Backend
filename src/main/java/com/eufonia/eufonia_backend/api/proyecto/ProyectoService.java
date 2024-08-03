@@ -29,4 +29,17 @@ public class ProyectoService {
 
         return proyectosMusicales;
     }
+
+    public boolean agregarProyecto(ProyectoMusical proyectoMusical){
+        try{
+            ProyectoEntity proyectoEntity = ProyectoFactory.convertirObjetoAEntity(proyectoMusical);
+
+            proyectoRepository.save(proyectoEntity);
+
+            return true;
+        }catch(Exception e){
+            e.getStackTrace();
+            return false;
+        }
+    }
 }
