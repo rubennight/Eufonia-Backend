@@ -37,5 +37,8 @@ public class ProyectoEntity {
 
     @Column(name = "confirmado")
     private Boolean confirmado;
+
+    @Column(name = "password")
+    private String password;
     
 }

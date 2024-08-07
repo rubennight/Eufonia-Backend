@@ -38,6 +38,7 @@ public class ProyectoFactory {
         proyectoEntity.setInstrumentos(proyectoMusical.getInstrumentos());
         proyectoEntity.setEmail(proyectoMusical.getEmail());
         proyectoEntity.setGeneroMusical(proyectoMusical.getGeneroMusical());
+        proyectoEntity.setPassword(proyectoMusical.getPassword());
 
         return proyectoEntity;
     }

@@ -20,5 +20,7 @@ public class ProyectoMusical {
     private String descripcion;
 
     private String generoMusical;
+
+    private String password;
     
 }

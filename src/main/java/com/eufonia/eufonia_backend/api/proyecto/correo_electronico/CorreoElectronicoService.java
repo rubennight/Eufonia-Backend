@@ -11,7 +11,7 @@ public class CorreoElectronicoService {
     @Autowired
     private JavaMailSender mailSender;
 
-    public void enviarMensajeDeConfirmacion(String receptor, String asunto, String texto){
+    public void enviarCorreoDeConfirmacion(String receptor, String asunto, String texto){
         SimpleMailMessage mensaje = new SimpleMailMessage();
 
         mensaje.setTo(receptor);

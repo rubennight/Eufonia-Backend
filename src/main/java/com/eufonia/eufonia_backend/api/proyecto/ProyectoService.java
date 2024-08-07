@@ -63,7 +63,7 @@ public class ProyectoService {
                                                 "Por favor confirma tu registro haciendo clic en el siguiente enlace: \n" + 
                                                 linkDeConfirmacion;
             
-            correoElectronicoService.enviarMensajeDeConfirmacion(proyectoMusical.getEmail(), "Confirma tu correo electrónico - Eufonía", textoDeCorreoElectronico);
+            correoElectronicoService.enviarCorreoDeConfirmacion(proyectoMusical.getEmail(), "Confirma tu correo electrónico - Eufonía", textoDeCorreoElectronico);
             
             return true;
         }catch(Exception e){
