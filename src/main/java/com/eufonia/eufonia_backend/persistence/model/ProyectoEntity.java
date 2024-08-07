@@ -34,5 +34,8 @@ public class ProyectoEntity {
 
     @Column(name = "genero_musical")
     private String generoMusical;
+
+    @Column(name = "confirmado")
+    private Boolean confirmado;
     
 }

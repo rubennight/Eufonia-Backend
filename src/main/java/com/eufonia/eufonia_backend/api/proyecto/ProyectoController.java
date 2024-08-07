@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @RestController
@@ -24,7 +26,12 @@ public class ProyectoController {
 
     @PostMapping("agregarProyectoMusical")
     public boolean agregarProyectoMusical(@RequestBody ProyectoMusical proyectoMusical) {
-        return proyectoService.agregarProyecto(proyectoMusical);
+        return proyectoService.registrarProyecto(proyectoMusical);
+    }
+    
+    @GetMapping("confirmarRegistro")
+    public Boolean getMethodName(@RequestParam("token") String token) {
+        return proyectoService.confirmarRegistro(token);
     }
     
 }
