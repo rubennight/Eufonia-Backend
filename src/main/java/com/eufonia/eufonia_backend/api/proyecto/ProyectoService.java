@@ -72,8 +72,9 @@ public class ProyectoService {
         }
     }
 
-    public Boolean confirmarRegistro(String token){
+    public ProyectoMusical confirmarRegistro(String token){
         Optional<ConfirmacionTokenEntity> confirmacionTokenEntity = confirmacionTokenRepository.findByToken(token);
+        ProyectoMusical proyectoMusical = new ProyectoMusical();
 
         if (confirmacionTokenEntity.isPresent()) {
             ConfirmacionTokenEntity confirmacionToken = confirmacionTokenEntity.get();
@@ -84,13 +85,15 @@ public class ProyectoService {
                 if(proyectoEntity != null){
                     proyectoEntity.setConfirmado(true);
                     proyectoRepository.save(proyectoEntity);
-                    return true;
+
+                    proyectoMusical = ProyectoFactory.toObject(proyectoEntity);
+                    return proyectoMusical;
                 }
             } else {
                 throw new RuntimeException("El token ha expirado.");
             }
         }
-        return false;
+        return proyectoMusical;
     }
 
 }

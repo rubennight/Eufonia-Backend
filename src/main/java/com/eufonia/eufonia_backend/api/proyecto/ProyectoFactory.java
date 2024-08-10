@@ -42,4 +42,18 @@ public class ProyectoFactory {
 
         return proyectoEntity;
     }
+
+    public static ProyectoMusical toObject(ProyectoEntity proyectoEntity){
+        ProyectoMusical proyectoMusical = new ProyectoMusical();
+
+        proyectoMusical.setIdProyecto(proyectoEntity.getIdProyecto());
+        proyectoMusical.setNombre(proyectoEntity.getNombre());
+        proyectoMusical.setInstrumentos(proyectoEntity.getInstrumentos());
+        proyectoMusical.setEmail(proyectoEntity.getEmail());
+        proyectoMusical.setTelefono(proyectoEntity.getTelefono());
+        proyectoMusical.setDescripcion(proyectoEntity.getDescripcion());
+        proyectoMusical.setGeneroMusical(proyectoEntity.getGeneroMusical());
+        
+        return proyectoMusical;
+    }
 }

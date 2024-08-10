@@ -1,5 +1,7 @@
 package com.eufonia.eufonia_backend.api.cita;
 
+import java.util.List;
+
 import com.eufonia.eufonia_backend.api.servicio.Servicio;
 
 import lombok.Data;
@@ -9,5 +11,5 @@ public class CitaServicio {
     
     private Cita cita;
     
-    private Servicio servicio;
+    private List<Servicio> servicios;
 }

@@ -28,7 +28,7 @@ public class ProyectoController {
     }
     
     @GetMapping("confirmarRegistro")
-    public Boolean getMethodName(@RequestParam("token") String token) {
+    public ProyectoMusical seConfirmaRegistro(@RequestParam("token") String token) {
         return proyectoService.confirmarRegistro(token);
     }
     

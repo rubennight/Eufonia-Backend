@@ -22,24 +22,10 @@ public class CitaService {
     @Autowired
     private PromocionRepository promocionRepository;
 
-    public Boolean agregarCita(Cita cita){
-        CitaEntity citaEntity = CitaFactory.toEntity(cita);
-
-        ProyectoEntity proyectoEntity = proyectoRepository.getReferenceById(cita.getIdProyecto());
-        PromocionEntity promocionEntity = promocionRepository.getReferenceById(cita.getIdPromocion());
+    public Boolean agregarCita(CitaServicio citaServicio){
+        
         try{
-            if(proyectoEntity != null){
-                citaEntity.setProyectoMusical(proyectoEntity);
-
-                if(promocionEntity != null){
-                    citaEntity.setPromocion(promocionEntity);
-                }
-
-                citaRepository.save(citaEntity);
-                return true;
-            } else {
-                return false;
-            }
+            return true;
         } catch(Exception e){
             e.printStackTrace();
             return false;

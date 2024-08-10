@@ -14,8 +14,8 @@ public class CitaController {
     private CitaService citaService;
 
     @PostMapping("agregarCita")
-    public Boolean agregarCita(Cita cita) {
-        return citaService.agregarCita(cita);
+    public Boolean agregarCita(CitaServicio citaServicio) {
+        return citaService.agregarCita(citaServicio);
     }
     
 }
