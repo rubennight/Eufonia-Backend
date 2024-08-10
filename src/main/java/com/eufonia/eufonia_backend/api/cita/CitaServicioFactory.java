@@ -9,15 +9,21 @@ import com.eufonia.eufonia_backend.api.servicio.Servicio;
 import com.eufonia.eufonia_backend.persistence.model.CitaEntity;
 import com.eufonia.eufonia_backend.persistence.model.CitaServicioEntity;
 import com.eufonia.eufonia_backend.persistence.model.ServicioEntity;
+import com.eufonia.eufonia_backend.persistence.repository.CitaRepository;
 import com.eufonia.eufonia_backend.persistence.repository.ServicioRepository;
 
 public class CitaServicioFactory {
 
     @Autowired
     private static ServicioRepository servicioRepository;
+
+    @Autowired
+    private static CitaRepository citaRepository;
     
     public static List<CitaServicioEntity> toListEntity(CitaServicio citaServicio){
         CitaEntity citaEntity = CitaFactory.toEntity(citaServicio.getCita());
+        citaRepository.save(citaEntity);
+
         List<CitaServicioEntity> citasYServicios = new ArrayList<>();
 
         for (Servicio servicio : citaServicio.getServicios()) {
