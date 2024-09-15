@@ -11,8 +11,16 @@ import org.springframework.stereotype.Service;
 
 import com.eufonia.eufonia_backend.api.proyecto.correo_electronico.CorreoElectronicoService;
 import com.eufonia.eufonia_backend.persistence.model.ConfirmacionTokenEntity;
+import com.eufonia.eufonia_backend.persistence.model.GeneroMusicalEntity;
+import com.eufonia.eufonia_backend.persistence.model.InstrumentoEntity;
 import com.eufonia.eufonia_backend.persistence.model.ProyectoEntity;
+import com.eufonia.eufonia_backend.persistence.model.ProyectoGeneroEntity;
+import com.eufonia.eufonia_backend.persistence.model.ProyectoInstrumentoEntity;
 import com.eufonia.eufonia_backend.persistence.repository.ConfirmacionTokenRepository;
+import com.eufonia.eufonia_backend.persistence.repository.GeneroMusicalRepository;
+import com.eufonia.eufonia_backend.persistence.repository.InstrumentoRepository;
+import com.eufonia.eufonia_backend.persistence.repository.ProyectoGeneroRepository;
+import com.eufonia.eufonia_backend.persistence.repository.ProyectoInstrumentoRepository;
 import com.eufonia.eufonia_backend.persistence.repository.ProyectoRepository;
 
 @Service
@@ -26,6 +34,18 @@ public class ProyectoService {
 
     @Autowired
     private CorreoElectronicoService correoElectronicoService;
+
+    @Autowired
+    private InstrumentoRepository instrumentoRepository;
+
+    @Autowired
+    private ProyectoInstrumentoRepository proyectoInstrumentoRepository;
+
+    @Autowired
+    private GeneroMusicalRepository generoMusicalRepository;
+
+    @Autowired
+    private ProyectoGeneroRepository proyectoGeneroRepository;
 
     public List<ProyectoMusical> obtenerTodosLosProyectos(){
         List<ProyectoMusical> proyectosMusicales = new ArrayList<>();
@@ -45,6 +65,26 @@ public class ProyectoService {
     public Boolean registrarProyecto(ProyectoMusical proyectoMusical){
         try{
             ProyectoEntity proyectoEntity = ProyectoFactory.toEntity(proyectoMusical);
+
+            for (Integer instrumento : proyectoMusical.getInstrumentos()) {
+                InstrumentoEntity instrumentoEntity = instrumentoRepository.getReferenceById(instrumento);
+                ProyectoInstrumentoEntity proyectoInstrumentoEntity = new ProyectoInstrumentoEntity();
+
+                proyectoInstrumentoEntity.setProyecto(proyectoEntity);
+                proyectoInstrumentoEntity.setInstrumento(instrumentoEntity);
+
+                proyectoInstrumentoRepository.save(proyectoInstrumentoEntity);
+            }
+
+            for (Integer instrumento : proyectoMusical.getGeneroMusical()) {
+                GeneroMusicalEntity instrumentoEntity = generoMusicalRepository.getReferenceById(instrumento);
+                ProyectoGeneroEntity proyectoInstrumentoEntity = new ProyectoGeneroEntity();
+
+                proyectoInstrumentoEntity.setProyecto(proyectoEntity);
+                proyectoInstrumentoEntity.setGenero(instrumentoEntity);
+
+                proyectoGeneroRepository.save(proyectoInstrumentoEntity);
+            }
 
             proyectoRepository.save(proyectoEntity);
 

@@ -18,7 +18,6 @@ public class ProyectoFactory {
             proyectoMusical.setNombre(proyectoEntity.getNombre());
             proyectoMusical.setDescripcion(proyectoEntity.getDescripcion());
             proyectoMusical.setEmail(proyectoEntity.getEmail());
-            proyectoMusical.setGeneroMusical(proyectoEntity.getGeneroMusical());
 
             proyectosMusicales.add(proyectoMusical);
         }
@@ -35,9 +34,7 @@ public class ProyectoFactory {
         proyectoEntity.setNombre(proyectoMusical.getNombre());
         proyectoEntity.setTelefono(proyectoMusical.getTelefono());
         proyectoEntity.setDescripcion(proyectoMusical.getDescripcion());
-        proyectoEntity.setInstrumentos(proyectoMusical.getInstrumentos());
         proyectoEntity.setEmail(proyectoMusical.getEmail());
-        proyectoEntity.setGeneroMusical(proyectoMusical.getGeneroMusical());
         proyectoEntity.setPassword(proyectoMusical.getPassword());
 
         return proyectoEntity;
@@ -48,11 +45,9 @@ public class ProyectoFactory {
 
         proyectoMusical.setIdProyecto(proyectoEntity.getIdProyecto());
         proyectoMusical.setNombre(proyectoEntity.getNombre());
-        proyectoMusical.setInstrumentos(proyectoEntity.getInstrumentos());
         proyectoMusical.setEmail(proyectoEntity.getEmail());
         proyectoMusical.setTelefono(proyectoEntity.getTelefono());
         proyectoMusical.setDescripcion(proyectoEntity.getDescripcion());
-        proyectoMusical.setGeneroMusical(proyectoEntity.getGeneroMusical());
         
         return proyectoMusical;
     }

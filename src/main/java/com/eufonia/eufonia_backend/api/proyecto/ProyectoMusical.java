@@ -11,15 +11,15 @@ public class ProyectoMusical {
 
     private String nombre;
 
-    private Integer instrumentos;
-
-    private String email;
-
-    private String telefono;
+    private String telefono;    
 
     private String descripcion;
 
-    private String generoMusical;
+    private Integer[] generoMusical;
+
+    private Integer[] instrumentos;
+
+    private String email;
 
     private String password;
     
