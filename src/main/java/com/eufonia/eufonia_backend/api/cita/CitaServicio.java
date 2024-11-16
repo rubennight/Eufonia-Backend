@@ -2,7 +2,7 @@ package com.eufonia.eufonia_backend.api.cita;
 
 import java.util.List;
 
-import com.eufonia.eufonia_backend.api.servicio.Servicio;
+import com.eufonia.eufonia_backend.api.catalogos.servicio.Servicio;
 
 import lombok.Data;
 

@@ -22,10 +22,6 @@ public class HistorialPagoEntity {
     @Column(name = "id_historial_pago")
     private UUID idHistorialPago;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_proyecto")
-    private ProyectoEntity proyectoMusical;
-
     @ManyToOne(fetch =  FetchType.LAZY)
     @JoinColumn(name = "id_cita")
     private CitaEntity cita;

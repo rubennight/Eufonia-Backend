@@ -1,5 +1,6 @@
 package com.eufonia.eufonia_backend.api.proyecto;
 
+import java.util.List;
 import java.util.UUID;
 
 import lombok.Data;
@@ -15,9 +16,9 @@ public class ProyectoMusical {
 
     private String descripcion;
 
-    private Integer[] generoMusical;
+    private List<String> generoMusical;
 
-    private Integer[] instrumentos;
+    private List<String> instrumentos;
 
     private String email;
 

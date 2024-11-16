@@ -22,10 +22,6 @@ public class CitaEntity {
     private UUID idCita;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_proyecto")
-    private ProyectoEntity proyectoMusical;
-
-    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_promocion")
     private PromocionEntity promocion;
 

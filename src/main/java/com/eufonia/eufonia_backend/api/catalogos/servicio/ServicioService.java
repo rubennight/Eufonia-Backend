@@ -1,4 +1,4 @@
-package com.eufonia.eufonia_backend.api.servicio;
+package com.eufonia.eufonia_backend.api.catalogos.servicio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,10 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.eufonia.eufonia_backend.api.cita.Cita;
-import com.eufonia.eufonia_backend.api.cita.CitaServicio;
-import com.eufonia.eufonia_backend.persistence.model.CitaEntity;
-import com.eufonia.eufonia_backend.persistence.model.CitaServicioEntity;
 import com.eufonia.eufonia_backend.persistence.model.ServicioEntity;
 import com.eufonia.eufonia_backend.persistence.repository.ServicioRepository;
 

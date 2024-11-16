@@ -21,8 +21,6 @@ public class ConfirmacionTokenEntity {
     @Column(name = "token")
     private String token;
 
-    @Column(name = "id_proyecto")
-    private ProyectoEntity proyecto;
 
     @Column(name = "expiracion")
     private LocalDateTime expiracion;

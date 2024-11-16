@@ -1,4 +1,4 @@
-package com.eufonia.eufonia_backend.api.promocion;
+package com.eufonia.eufonia_backend.api.catalogos.promocion;
 
 import java.util.List;
 

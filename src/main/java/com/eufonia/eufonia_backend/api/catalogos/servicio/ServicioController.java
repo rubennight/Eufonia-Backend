@@ -1,4 +1,4 @@
-package com.eufonia.eufonia_backend.api.servicio;
+package com.eufonia.eufonia_backend.api.catalogos.servicio;
 
 import java.util.List;
 

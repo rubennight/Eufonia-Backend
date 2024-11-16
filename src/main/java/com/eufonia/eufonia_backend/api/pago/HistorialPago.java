@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
-import com.eufonia.eufonia_backend.persistence.model.CitaEntity;
-import com.eufonia.eufonia_backend.persistence.model.ProyectoEntity;
+import com.eufonia.eufonia_backend.api.cita.Cita;
+import com.eufonia.eufonia_backend.api.proyecto.ProyectoMusical;
 
 import lombok.Data;
 
@@ -14,9 +14,9 @@ public class HistorialPago {
 
     private UUID idHistorialPago;
 
-    private ProyectoEntity proyectoMusical;
+    private ProyectoMusical proyectoMusical;
 
-    private CitaEntity cita;
+    private Cita cita;
 
     private BigDecimal monto;
 

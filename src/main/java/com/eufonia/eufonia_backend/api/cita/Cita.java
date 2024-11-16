@@ -10,7 +10,7 @@ public class Cita {
     
     private UUID idCita;
 
-    private UUID idProyecto;
+    private Integer idProyecto;
 
     private UUID idPromocion;
 

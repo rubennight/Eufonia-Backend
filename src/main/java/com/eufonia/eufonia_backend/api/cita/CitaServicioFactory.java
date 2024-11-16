@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.eufonia.eufonia_backend.api.servicio.Servicio;
+import com.eufonia.eufonia_backend.api.catalogos.servicio.Servicio;
 import com.eufonia.eufonia_backend.persistence.model.CitaEntity;
 import com.eufonia.eufonia_backend.persistence.model.CitaServicioEntity;
 import com.eufonia.eufonia_backend.persistence.model.ServicioEntity;
