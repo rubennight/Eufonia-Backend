@@ -15,6 +15,9 @@ public class GeneroMusicalEntity {
     @Column(name = "id_genero_musical")
     private Integer idGeneroMusical;
 
+    @Column(name = "nombre")
+    private String nombre;
+
     @Column(name = "descripcion")
     private String descripcion;
     

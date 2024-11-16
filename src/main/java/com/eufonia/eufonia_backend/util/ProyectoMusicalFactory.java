@@ -6,10 +6,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.eufonia.eufonia_backend.api.proyecto.AgregarProyectoMusical;
 import com.eufonia.eufonia_backend.api.proyecto.ProyectoMusical;
+import com.eufonia.eufonia_backend.persistence.model.GeneroMusicalEntity;
+import com.eufonia.eufonia_backend.persistence.model.InstrumentoEntity;
 import com.eufonia.eufonia_backend.persistence.model.ProyectoGeneroEntity;
 import com.eufonia.eufonia_backend.persistence.model.ProyectoInstrumentoEntity;
 import com.eufonia.eufonia_backend.persistence.model.ProyectoMusicalEntity;
+import com.eufonia.eufonia_backend.persistence.repository.GeneroMusicalRepository;
+import com.eufonia.eufonia_backend.persistence.repository.InstrumentoRepository;
 import com.eufonia.eufonia_backend.persistence.repository.ProyectoGeneroRepository;
 import com.eufonia.eufonia_backend.persistence.repository.ProyectoInstrumentoRepository;
 
@@ -21,6 +26,12 @@ public class ProyectoMusicalFactory {
 
     @Autowired
     private ProyectoInstrumentoRepository proyectoInstrumentoRepository;
+
+    @Autowired
+    private GeneroMusicalRepository generoMusicalRepository;
+
+    @Autowired
+    private InstrumentoRepository instrumentoRepository;
     
     public List<String> obtenerGeneros(ProyectoMusicalEntity proyectoMusicalEntity){
         List<String> generos = new ArrayList<>();        
@@ -29,7 +40,7 @@ public class ProyectoMusicalFactory {
             List<ProyectoGeneroEntity> generosPorProyecto = proyectoGeneroRepository.findByProyectoMusicalEntity(proyectoMusicalEntity);
             
             for (ProyectoGeneroEntity proyectoGeneroEntity : generosPorProyecto) {
-                String genero = proyectoGeneroEntity.getGenero().getDescripcion();
+                String genero = proyectoGeneroEntity.getGenero().getNombre();
                 generos.add(genero);
             }
         } catch (Exception e) {
@@ -76,5 +87,72 @@ public class ProyectoMusicalFactory {
         }
 
         return proyectoMusicales;
+    }
+
+    public ProyectoMusicalEntity agregarEntity(AgregarProyectoMusical proyectoMusical){
+        
+        ProyectoMusicalEntity proyectoEntity = new ProyectoMusicalEntity();
+        proyectoEntity.setNombre(proyectoMusical.getNombre());
+        proyectoEntity.setTelefono(proyectoMusical.getTelefono());
+        proyectoEntity.setDescripcion(proyectoMusical.getDescripcion());
+        proyectoEntity.setEmail(proyectoMusical.getEmail());
+        proyectoEntity.setPassword(proyectoMusical.getPassword()); 
+
+        Boolean confirmacion = false;
+        proyectoEntity.setConfirmado(confirmacion);
+
+        return proyectoEntity;
+    }
+
+    public Boolean agregarGeneros(List<Integer> generos, ProyectoMusicalEntity proyectoMusicalEntity){
+        Boolean exito = false;
+        List<ProyectoGeneroEntity> generoEntities = new ArrayList<>();
+        
+        try {
+            for (Integer idGenero : generos) {
+                GeneroMusicalEntity generoMusicalEntity = generoMusicalRepository.getReferenceById(idGenero);
+                ProyectoGeneroEntity proyectoGeneroEntity = new ProyectoGeneroEntity();
+
+                proyectoGeneroEntity.setGenero(generoMusicalEntity);
+                proyectoGeneroEntity.setProyectoMusicalEntity(proyectoMusicalEntity);
+
+                generoEntities.add(proyectoGeneroEntity);
+            }
+
+            proyectoGeneroRepository.saveAll(generoEntities);        
+            
+            exito = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            exito = false;
+        }
+        
+        return exito;
+    }
+
+    public Boolean agregarInstrumentos(List<Integer> instrumentos, ProyectoMusicalEntity proyectoMusicalEntity){
+        Boolean exito = false;
+        List<ProyectoInstrumentoEntity> instrumentoEntities = new ArrayList<>();
+        
+        try {
+            for (Integer idGenero : instrumentos) {
+                InstrumentoEntity generoMusicalEntity = instrumentoRepository.getReferenceById(idGenero);
+                ProyectoInstrumentoEntity proyectoInstrumentoEntity = new ProyectoInstrumentoEntity();
+
+                proyectoInstrumentoEntity.setInstrumento(generoMusicalEntity);
+                proyectoInstrumentoEntity.setProyectoMusical(proyectoMusicalEntity);
+
+                instrumentoEntities.add(proyectoInstrumentoEntity);
+            }
+
+            proyectoInstrumentoRepository.saveAll(instrumentoEntities);        
+            
+            exito = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            exito = false;
+        }
+        
+        return exito;
     }
 }
